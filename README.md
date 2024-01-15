@@ -131,7 +131,8 @@ timezone = "UTC"
 if you are using a local server, you must specify the local server address
 
 - Start listener
-
+- 
+`chmod u+x init.sh`
 `./listener/src/Socket/init.sh`
 
 
