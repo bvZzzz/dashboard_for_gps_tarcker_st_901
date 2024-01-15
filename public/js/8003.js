@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[8003],{8003:(e,s,t)=>{t.r(s),t.d(s,{default:()=>u});var n=t(821),r={class:"text-xs text-red-600"};const u={__name:"InputError",props:{message:{type:String}},setup:function(e){return function(s,t){return(0,n.wy)(((0,n.wg)(),(0,n.iD)("div",null,[(0,n._)("p",r,(0,n.zw)(e.message),1)],512)),[[n.F8,e.message]])}}}}}]);
