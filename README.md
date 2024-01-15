@@ -79,11 +79,11 @@ server {
 
 # Dashboard
 
-`git clone https://github.com/bvZzzz/dashboard_for_gps_tarcker_st-901.git`
+`git clone https://github.com/bvZzzz/dashboard_for_gps_tarcker_st_901.git`
 
 `apt install php8.2-curl php8.2-gd php8.2-dom php8.2-xml php8.2-mysql` - optional
 
-`mv dashboard_for_gps_tarcker_st-901 sitename`
+`mv dashboard_for_gps_tarcker_st_901 sitename`
 
 `composer install`
 
