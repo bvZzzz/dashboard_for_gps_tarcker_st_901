@@ -53,7 +53,7 @@
                                         <SelectInput
                                             name="group" id="group"
                                             :options="options"
-                                            :default="{id: 0, name: this.$t('ui.choose_group')}"
+                                            :default="{id: 0, name: $t('ui.choose_group')}"
                                             v-model:value="form.group_id"
                                             class="mt-1 block w-72"/>
 
