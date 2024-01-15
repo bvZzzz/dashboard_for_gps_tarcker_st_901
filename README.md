@@ -108,14 +108,6 @@ After
 - Add Groups - Settings - Groups
 - Add Devices - Settings - Devices
 
-
-# ST-901
-
-Command: 804+PASSWORD+ +IP+ +PORT
-
-`804000 10.10.10.10 11111` (send SMS)
-
-
 # Listener
 
 - listener\config\config.ini - for access the database
@@ -141,6 +133,13 @@ if you are using a local server, you must specify the local server address
 - Start listener
 
 `./listener/src/Socket/init.sh`
+
+
+# ST-901
+
+Command: 804+PASSWORD+ +IP+ +PORT
+
+`804000 10.10.10.10 11111` (send SMS)
 
 
 # More
