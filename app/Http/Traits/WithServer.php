@@ -14,7 +14,7 @@ trait WithServer
      *
      * @return array
      */
-    private function getAllServerData()
+    private function getAllServerData(): array
     {
         $data = $this->getLogData();
 
@@ -35,7 +35,7 @@ trait WithServer
      *
      * @return array
      */
-    private function getLogData()
+    private function getLogData(): array
     {
         $serv = Log::query()
                     ->whereDate('created_at', Carbon::today())
