@@ -17,9 +17,9 @@ trait WithUserSessionData
      * Создать новый экземпляр агента из данного сеанса.
      *
      * @param  mixed  $session
-     * @return \Jenssegers\Agent\Agent
+     * @return Agent
      */
-    protected function createAgent($session)
+    protected function createAgent($session): Agent
     {
         return tap(new Agent, function ($agent) use ($session) {
             $agent->setUserAgent($session->user_agent);
@@ -34,7 +34,7 @@ trait WithUserSessionData
      * @param string|null $id
      * @return array
      */
-    public function getUserSessionData(string $id = null): array
+    public function getUserSessionData(string|null $id = null): array
     {
         if (\auth()->check()){
             $users = User::query()
