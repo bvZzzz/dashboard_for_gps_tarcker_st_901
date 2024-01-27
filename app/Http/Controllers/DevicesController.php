@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Http\Config\Settings;
@@ -44,7 +46,7 @@ class DevicesController extends Controller
      * @param Request $request
      * @return string
      */
-    public function getDeviceData(Request $request)
+    public function getDeviceData(Request $request): string
     {
         if ($request->has('uuid')){
             $device = Device::query()
@@ -61,7 +63,7 @@ class DevicesController extends Controller
 
         }
 
-        return response()->json([]);
+        return "";
     }
 
     /**
@@ -72,7 +74,7 @@ class DevicesController extends Controller
      * @param string $uuid
      * @return void
      */
-    public function delete(string $uuid)
+    public function delete(string $uuid): void
     {
         //Ищем - Find device
         $device = Device::query()->where('uuid', $uuid)->first();
