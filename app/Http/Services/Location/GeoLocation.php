@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Services\Location;
 
 use App\Models\Coordinate;
@@ -84,9 +86,9 @@ class GeoLocation extends GeoHelper
      * @param $start
      * @param $end
      * @param $idTracker - ID устройcтва
-     * @return float|int
+     * @return int|bool|float
      */
-    private function getEngineRuntime($start, $end, $idTracker): float|int
+    private function getEngineRuntime($start, $end, $idTracker): int|bool|float
     {
         $runtime = Coordinate::query()
                             ->selectRaw('COUNT(*) AS cnt')
