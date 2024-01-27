@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Http\Config\Settings;
@@ -7,7 +9,6 @@ use App\Http\Requests\ProfileUpdateRequest;
 use App\Http\Traits\WithFileUpload;
 use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -22,8 +23,12 @@ use Illuminate\Validation\Rules;
 class ProfileController extends Controller
 {
     use WithFileUpload;
+
     /**
      * Display the user's profile form.
+     *
+     * @param Request $request
+     * @return Response
      */
     public function edit(Request $request): Response
     {
@@ -33,8 +38,12 @@ class ProfileController extends Controller
         ]);
     }
 
+
     /**
      * Update the user's profile information.
+     *
+     * @param ProfileUpdateRequest $request
+     * @return RedirectResponse
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
@@ -49,8 +58,12 @@ class ProfileController extends Controller
         return Redirect::route('profile.edit');
     }
 
+
     /**
      * Delete the user's account.
+     *
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function destroy(Request $request): RedirectResponse
     {
@@ -76,14 +89,14 @@ class ProfileController extends Controller
      * Returns user data by uuid
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function getUserData(Request $request): JsonResponse
     {
         if ($request->has('uuid')){
             $user = $this->getUser($request->uuid);
 
-            return \response()->json([
+            return response()->json([
                 'name' => $user?->first_name . ' ' . $user?->last_name,
                 'email' => $user?->email,
                 'uuid' => $user?->uuid,
@@ -91,7 +104,7 @@ class ProfileController extends Controller
             ]);
         }
 
-        return \response()->json([]);
+        return response()->json([]);
     }
 
     /**
@@ -198,7 +211,7 @@ class ProfileController extends Controller
      * @param string $uuid
      * @return void
      */
-    public function delete(string $uuid)
+    public function delete(string $uuid): void
     {
         $user = $this->getUser($uuid);
         //Удаляем/Delete
