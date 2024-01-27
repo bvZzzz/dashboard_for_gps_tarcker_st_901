@@ -40,9 +40,9 @@ trait WithFileUpload
      *
      * @param Request $request
      * @param $model
-     * @return string|null
+     * @return string
      */
-    protected function checkPhotoInTable(Request $request, $model): string|null
+    protected function checkPhotoInTable(Request $request, $model): string
     {
         if (empty($request->get('photo'))){
             $item = $model::query()->where('uuid', $request->uuid)->first();
