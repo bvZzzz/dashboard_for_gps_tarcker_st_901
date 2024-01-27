@@ -16,9 +16,9 @@ trait WithDevices
      *
      * Returns all devices as a list in the menu
      *
-     * @return mixed
+     * @return array
      */
-    private function getDevices(): mixed
+    private function getDevices(): array
     {
         $devices = Device::query()
             ->select([

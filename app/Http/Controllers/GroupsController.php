@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Http\Config\Settings;
@@ -43,7 +45,7 @@ class GroupsController extends Controller
             return $group?->toJson();
         }
 
-        return response()->json([]);
+        return "";
 
     }
 

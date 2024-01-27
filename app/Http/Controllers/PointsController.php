@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Http\Config\Settings;
@@ -17,7 +19,7 @@ class PointsController extends Controller
      * @param PointRequest $request
      * @return void
      */
-    public function store(PointRequest $request)
+    public function store(PointRequest $request): void
     {
         $request->validated();
         //Создаем/обновляем точку - Create/update a point
@@ -32,9 +34,9 @@ class PointsController extends Controller
      * Returns point data for editing
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse|string
+     * @return string
      */
-    public function getPointData(Request $request)
+    public function getPointData(Request $request): string
     {
         if ($request->has('uuid')){
             $point = Point::query()
@@ -44,7 +46,7 @@ class PointsController extends Controller
             return $point?->toJson();
         }
 
-        return response()->json([]);
+        return "";
     }
 
     /**
@@ -55,7 +57,7 @@ class PointsController extends Controller
      * @param string $uuid
      * @return void
      */
-    public function delete(string $uuid)
+    public function delete(string $uuid): void
     {
         $device = Point::query()->where('uuid', $uuid)->first();
         //Удаляем - delete

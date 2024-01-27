@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="px-6 py-1.5 flex items-center text-sm text-gray-500">
-                    <span class="text-sm font-medium text-gray-900">
+                    <span class="text-sm font-medium text-gray-900 truncate" :title="item.value">
                         {{ item.value }}
                     </span>
                 </div>

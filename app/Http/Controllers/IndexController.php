@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 use App\Http\Services\Location\GeoLocation;
 use App\Http\Traits\WithDevices;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use MoveMoveIo\DaData\Facades\DaDataAddress;
 
@@ -76,7 +79,7 @@ class IndexController extends Controller
      * Register tokens in the .env file
      * access it via JS (working Russian country only)
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function getAddressFromCoords(Request $request)
     {

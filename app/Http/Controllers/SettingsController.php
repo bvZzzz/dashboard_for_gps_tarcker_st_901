@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Http\Traits\WithApiKeys;
@@ -11,16 +13,23 @@ use App\Http\Traits\WithServer;
 use App\Http\Traits\WithUserSessionData;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
+use Inertia\Response;
 
 class SettingsController extends Controller
 {
-    use WithUserSessionData, WithGroups, WithDevices, WithPoints, WithBlacklist, WithServer, WithApiKeys;
+    use WithUserSessionData,
+        WithGroups,
+        WithDevices,
+        WithPoints,
+        WithBlacklist,
+        WithServer,
+        WithApiKeys;
 
     /**
      * @param string $page
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function render(string $page = 'profile')
+    public function render(string $page = 'profile'): Response
     {
         $data = $this->getPageData($page);
 
@@ -40,7 +49,7 @@ class SettingsController extends Controller
      *
      * @return string
      */
-    private function getMapType()
+    private function getMapType(): string
     {
         if (auth()->check()){
             return !empty(auth()->user()->map) ? auth()->user()->map : 'osm';
@@ -57,7 +66,7 @@ class SettingsController extends Controller
      * @param string $page
      * @return mixed
      */
-    private function getPageData(string $page)
+    private function getPageData(string $page): mixed
     {
         return match ($page){
             'profile' => $this->getUserSessionData(),

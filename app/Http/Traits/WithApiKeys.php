@@ -15,7 +15,7 @@ trait WithApiKeys
      *
      * @return mixed
      */
-    public function getAPIKey()
+    public function getAPIKey(): mixed
     {
         $key = AccessKey::query()->select(['value'])->first();
 
